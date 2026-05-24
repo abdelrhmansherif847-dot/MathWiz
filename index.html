@@ -297,30 +297,25 @@ footer{text-align:center;padding:44px 20px;border-top:1px solid rgba(255,255,255
   </div>
   <div class="submit-wrap reveal">
 
-<form
-action="https://api.web3forms.com/submit"
-method="POST"
-enctype="multipart/form-data"
->
-
-<input type="hidden" name="access_key" value="6cb34d79-e378-479f-b142-1d5ee4d257dd">
-
-<input type="hidden" name="subject" value="New Math Question">
-
 <h2>Submit Your Math Problem</h2>
 
 <p>
-We'll receive it instantly on email with the file attached.
+We'll receive it on
+<strong style="color:var(--g)">WhatsApp</strong>
+&
+<strong style="color:var(--y)">Email</strong>
+instantly ✅
 </p>
 
 <div class="fg">
+
 <label>YOUR FULL NAME</label>
 
 <input
 type="text"
-name="name"
-placeholder="e.g. Name"
-required>
+id="sName"
+placeholder="e.g. Ahmed Mohamed"
+autocomplete="name">
 
 </div>
 
@@ -328,69 +323,164 @@ required>
 
 <label>WHATSAPP NUMBER</label>
 
+<div class="phone-row">
+
+<div class="phone-pre">🇪🇬 +20</div>
+
 <input
-type="text"
-name="whatsapp"
-placeholder="e.g. +20..."
-required>
+type="tel"
+id="sPhone"
+placeholder="1XXXXXXXXX"
+autocomplete="tel">
+
+</div>
 
 </div>
 
 <div class="fg">
 
-<label>TYPE YOUR QUESTION</label>
+<label>SUBJECT</label>
+
+<select id="sSubject">
+
+<option value="">
+Choose your subject...
+</option>
+
+<option>Algebra</option>
+<option>Geometry</option>
+<option>Trigonometry</option>
+<option>Calculus</option>
+<option>Statistics & Probability</option>
+<option>Linear Algebra</option>
+<option>Arithmetic</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+<div class="fg">
+
+<label>TYPE YOUR QUESTION (OPTIONAL)</label>
 
 <textarea
-name="question"
+id="sQuestion"
 rows="3"
-placeholder="e.g. Solve for x..."
+placeholder="e.g. Solve for x: 2x² - 5x + 3 = 0..."
 ></textarea>
 
 </div>
 
 <div class="fg">
 
-<label>UPLOAD YOUR QUESTION 📎</label>
-
-<input
-type="file"
-name="attachment"
-accept="image/*,.pdf,video/*"
-required>
-
-</div>
-<div class="fg solution-box">
-
-<label class="solution-label">
-✨ HOW DO YOU WANT THE SOLUTION?
+<label>
+UPLOAD YOUR QUESTION (PHOTO / VIDEO / PDF) 📎
 </label>
 
-<select
-name="solution_type"
-class="solution-select"
+<div
+class="drop-zone"
+id="dropZone"
+onclick="document.getElementById('fileInput').click()"
 >
 
-<option value="Photo Solution">
-📸 Photo Solution
-</option>
+<div class="dz-icon">📷</div>
 
-<option value="Video Solution">
-🎥 Video Solution
-</option>
+<p style="font-size:1rem;font-weight:900;color:#f0f0ff;margin-bottom:6px">
+Tap here to upload your photo / PDF
+</p>
 
-</select>
+<p>
+Camera, gallery or files — all accepted
+<br>
+<span>tap to browse</span>
+</p>
+
+<p id="file-name"></p>
 
 </div>
-<button
-class="submit-btn"
-type="submit"
+
+<input
+class="file-input"
+type="file"
+id="fileInput"
+accept="image/*,video/*,application/pdf"
+onchange="onFile(this)"
 >
 
-🚀 Submit Question
+<div id="img-preview">
+<img id="preview-img" src="" alt="preview">
+</div>
+
+</div>
+
+<div class="fg">
+
+<label>
+HOW WOULD YOU LIKE THE SOLUTION? 🎯
+</label>
+
+<div class="fmt-wrap">
+
+<button
+type="button"
+class="fmt-btn active"
+id="fPhoto"
+onclick="setFmt(this,'photo')"
+>
+
+<span class="fmt-icon">📸</span>
+
+<span class="fmt-label">
+Photo
+</span>
+
+<span class="fmt-desc">
+Step-by-step written solution as image
+</span>
 
 </button>
 
-</form>
+<button
+type="button"
+class="fmt-btn"
+id="fVideo"
+onclick="setFmt(this,'video')"
+>
+
+<span class="fmt-icon">🎥</span>
+
+<span class="fmt-label">
+Video
+</span>
+
+<span class="fmt-desc">
+Explained step-by-step in a video
+</span>
+
+</button>
+
+</div>
+
+</div>
+
+<p
+id="formErr"
+style="display:none;color:#EF476F;font-weight:800;font-size:.88rem;margin-bottom:10px;text-align:center;background:rgba(239,71,111,.1);padding:10px;border-radius:10px;"
+></p>
+
+<button
+class="submit-btn"
+id="submitBtn"
+onclick="doSubmit()"
+style="font-size:1.1rem;padding:18px;letter-spacing:.3px"
+>
+
+<span>🚀</span>
+
+Submit Question — Get Solution on WhatsApp
+
+</button>
 
 <a
 href="https://wa.me/201032365569"
@@ -398,34 +488,12 @@ target="_blank"
 class="wa-direct"
 >
 
-💬 Or message us directly on WhatsApp
+💬 Or message us directly on WhatsApp:
++20 103 2365569
 
 </a>
 
 </div>
-</section>
-
-<!-- PAYMENT -->
-<section id="payment">
-  <p class="sec-label">InstaPay</p>
-  <h2 class="sec-title reveal">Pay <span style="color:var(--y)">Instantly</span> 💳</h2>
-  <div class="pay-wrap">
-    <div class="pay-card reveal">
-      <h3>🔗 Direct Payment Link</h3>
-      <p>Click the button or copy the link to pay via InstaPay</p>
-      <div class="pay-link-row">
-        <div>
-          <div class="pay-link-label">InstaPay Link</div>
-          <div class="pay-link-url">ipn.eg/S/abdelrhmansherif800/instapay/3RT50g</div>
-        </div>
-        <button class="copy-btn" onclick="copyLink(this)">Copy</button>
-      </div>
-      <a href="https://ipn.eg/S/abdelrhmansherif800/instapay/3RT50g" target="_blank" class="pay-now-link">⚡ Pay Now via InstaPay</a>
-      <div style="margin-top:16px;padding:13px;background:rgba(6,214,160,.06);border-radius:11px;border:1px solid rgba(6,214,160,.18)">
-        <p style="font-size:.82rem;color:var(--g);font-weight:800">✓ Safe &amp; Secure</p>
-        <p style="font-size:.75rem;color:var(--mu);margin-top:3px">Protected by InstaPay encryption</p>
-      </div>
-    </div>
     <div class="pay-card reveal" style="transition-delay:.14s">
       <h3>📱 Scan QR Code</h3>
       <p>Open your banking app and scan to pay instantly</p>
