@@ -296,71 +296,136 @@ footer{text-align:center;padding:44px 20px;border-top:1px solid rgba(255,255,255
     </div>
   </div>
   <div class="submit-wrap reveal">
-    <h2>Submit Your Math Problem</h2>
-    <p>We'll receive it on <strong style="color:var(--g)">WhatsApp</strong> &amp; <strong style="color:var(--y)">Email</strong> instantly ✅</p>
+  <form 
+  action="https://formsubmit.co/abdelrhmansherif847@gmail.com"
+  method="POST"
+  enctype="multipart/form-data"
+>
 
-    <div class="fg">
-      <label>YOUR FULL NAME</label>
-      <input type="text" id="sName" placeholder="e.g. Ahmed Mohamed" autocomplete="name">
-    </div>
-    <div class="fg">
-      <label>WHATSAPP NUMBER</label>
-      <div class="phone-row">
-        <div class="phone-pre">🇪🇬 +20</div>
-        <input type="tel" id="sPhone" placeholder="1XXXXXXXXX" autocomplete="tel">
-      </div>
-    </div>
-    <div class="fg">
-      <label>SUBJECT</label>
-      <select id="sSubject">
-        <option value="">Choose your subject...</option>
-        <option>Algebra</option>
-        <option>Geometry</option>
-        <option>Trigonometry</option>
-        <option>Calculus</option>
-        <option>Statistics &amp; Probability</option>
-        <option>Linear Algebra</option>
-        <option>Arithmetic</option>
-        <option>Other</option>
-      </select>
-    </div>
-    <div class="fg">
-      <label>TYPE YOUR QUESTION (OPTIONAL)</label>
-      <textarea id="sQuestion" rows="3" placeholder="e.g. Solve for x: 2x² - 5x + 3 = 0..."></textarea>
-    </div>
-    <div class="fg">
-      <label>UPLOAD YOUR QUESTION (PHOTO / VIDEO / PDF) 📎</label>
-      <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
-        <div class="dz-icon">📷</div>
-        <p style="font-size:1rem;font-weight:900;color:#f0f0ff;margin-bottom:6px">Tap here to upload your photo / PDF</p>
-        <p>Camera, gallery or files — all accepted<br><span>tap to browse</span></p>
-        <p id="file-name"></p>
-      </div>
-      <input class="file-input" type="file" id="fileInput" accept="image/*,video/*,application/pdf" onchange="onFile(this)">
-      <div id="img-preview"><img id="preview-img" src="" alt="preview"></div>
-    </div>
-    <div class="fg">
-      <label>HOW WOULD YOU LIKE THE SOLUTION? 🎯</label>
-      <div class="fmt-wrap">
-        <button type="button" class="fmt-btn active" id="fPhoto" onclick="setFmt(this,'photo')">
-          <span class="fmt-icon">📸</span>
-          <span class="fmt-label">Photo</span>
-          <span class="fmt-desc">Step-by-step written solution as image</span>
-        </button>
-        <button type="button" class="fmt-btn" id="fVideo" onclick="setFmt(this,'video')">
-          <span class="fmt-icon">🎥</span>
-          <span class="fmt-label">Video</span>
-          <span class="fmt-desc">Explained step-by-step in a video</span>
-        </button>
-      </div>
-    </div>
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_subject" value="New MathWiz Question 🚀">
 
-    <p id="formErr" style="display:none;color:#EF476F;font-weight:800;font-size:.88rem;margin-bottom:10px;text-align:center;background:rgba(239,71,111,.1);padding:10px;border-radius:10px;"></p>
-    <button class="submit-btn" id="submitBtn" onclick="doSubmit()" style="font-size:1.1rem;padding:18px;letter-spacing:.3px">
-      <span>🚀</span> Submit Question — Get Solution on WhatsApp
-    </button>
-    <a href="https://wa.me/201032365569" target="_blank" class="wa-direct">💬 Or message us directly on WhatsApp: +20 103 2365569</a>
-  </div>
+<h2>Submit Your Math Problem</h2>
+
+<p>
+We'll receive it instantly on email with the file attached ✅
+</p>
+
+<div class="fg">
+<label>YOUR FULL NAME</label>
+<input 
+type="text" 
+name="name" 
+placeholder="e.g. Ahmed Mohamed" 
+required>
+</div>
+
+<div class="fg">
+<label>WHATSAPP NUMBER</label>
+
+<div class="phone-row">
+<div class="phone-pre">🇪🇬 +20</div>
+
+<input 
+type="tel" 
+name="phone" 
+placeholder="1XXXXXXXXX" 
+required>
+
+</div>
+</div>
+
+<div class="fg">
+<label>SUBJECT</label>
+
+<select name="subject" required>
+<option value="">Choose your subject...</option>
+<option>Algebra</option>
+<option>Geometry</option>
+<option>Trigonometry</option>
+<option>Calculus</option>
+<option>Statistics & Probability</option>
+<option>Linear Algebra</option>
+<option>Arithmetic</option>
+<option>Other</option>
+</select>
+
+</div>
+
+<div class="fg">
+
+<label>TYPE YOUR QUESTION</label>
+
+<textarea
+name="question"
+rows="3"
+placeholder="e.g. Solve for x..."
+></textarea>
+
+</div>
+
+<div class="fg">
+
+<label>UPLOAD YOUR QUESTION 📎</label>
+
+<div 
+class="drop-zone"
+onclick="document.getElementById('fileInput').click()"
+>
+
+<div class="dz-icon">📷</div>
+
+<p style="font-size:1rem;font-weight:900;color:#f0f0ff;margin-bottom:6px">
+Tap here to upload your file
+</p>
+
+<p>
+Camera, gallery, PDF or video<br>
+<span>tap to browse</span>
+</p>
+
+<p id="file-name"></p>
+
+</div>
+
+<input
+class="file-input"
+type="file"
+id="fileInput"
+name="attachment"
+accept="image/*,video/*,application/pdf"
+required
+onchange="onFile(this)"
+>
+
+<div id="img-preview">
+<img id="preview-img" src="" alt="preview">
+</div>
+
+</div>
+
+<button 
+class="submit-btn"
+type="submit"
+>
+
+🚀 Submit Question
+
+</button>
+
+</form>
+
+<a 
+href="https://wa.me/201032365569"
+target="_blank"
+class="wa-direct"
+>
+
+💬 Or message us directly on WhatsApp
+
+</a>
+
+</div>
 </section>
 
 <!-- PAYMENT -->
