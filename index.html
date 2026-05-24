@@ -296,59 +296,43 @@ footer{text-align:center;padding:44px 20px;border-top:1px solid rgba(255,255,255
     </div>
   </div>
   <div class="submit-wrap reveal">
-  <form 
-  action="https://formsubmit.co/abdelrhmansherif847@gmail.com"
-  method="POST"
-  enctype="multipart/form-data"
+
+<form
+action="https://api.web3forms.com/submit"
+method="POST"
+enctype="multipart/form-data"
 >
 
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_subject" value="New MathWiz Question 🚀">
+<input type="hidden" name="access_key" value="6cb34d79-e378-479f-b142-1d5ee4d257dd">
+
+<input type="hidden" name="subject" value="New Math Question">
 
 <h2>Submit Your Math Problem</h2>
 
 <p>
-We'll receive it instantly on email with the file attached ✅
+We'll receive it instantly on email with the file attached.
 </p>
 
 <div class="fg">
 <label>YOUR FULL NAME</label>
-<input 
-type="text" 
-name="name" 
-placeholder="e.g. Name " 
+
+<input
+type="text"
+name="name"
+placeholder="e.g. Name"
 required>
+
 </div>
 
 <div class="fg">
+
 <label>WHATSAPP NUMBER</label>
 
-<div class="phone-row">
-<div class="phone-pre">🇪🇬 +20</div>
-
-<input 
-type="tel" 
-name="phone" 
-placeholder="1XXXXXXXXX" 
+<input
+type="text"
+name="whatsapp"
+placeholder="e.g. +20..."
 required>
-
-</div>
-</div>
-
-<div class="fg">
-<label>SUBJECT</label>
-
-<select name="subject" required>
-<option value="">Choose your subject...</option>
-<option>Algebra</option>
-<option>Geometry</option>
-<option>Trigonometry</option>
-<option>Calculus</option>
-<option>Statistics & Probability</option>
-<option>Linear Algebra</option>
-<option>Arithmetic</option>
-<option>Other</option>
-</select>
 
 </div>
 
@@ -368,43 +352,15 @@ placeholder="e.g. Solve for x..."
 
 <label>UPLOAD YOUR QUESTION 📎</label>
 
-<div 
-class="drop-zone"
-onclick="document.getElementById('fileInput').click()"
->
-
-<div class="dz-icon">📷</div>
-
-<p style="font-size:1rem;font-weight:900;color:#f0f0ff;margin-bottom:6px">
-Tap here to upload your file
-</p>
-
-<p>
-Camera, gallery, PDF or video<br>
-<span>tap to browse</span>
-</p>
-
-<p id="file-name"></p>
-
-</div>
-
 <input
-class="file-input"
 type="file"
-id="fileInput"
 name="attachment"
-accept="image/*,video/*,application/pdf"
-required
-onchange="onFile(this)"
->
-
-<div id="img-preview">
-<img id="preview-img" src="" alt="preview">
-</div>
+accept="image/*,.pdf,video/*"
+required>
 
 </div>
 
-<button 
+<button
 class="submit-btn"
 type="submit"
 >
@@ -415,7 +371,7 @@ type="submit"
 
 </form>
 
-<a 
+<a
 href="https://wa.me/201032365569"
 target="_blank"
 class="wa-direct"
