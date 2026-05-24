@@ -495,7 +495,35 @@ Explained step-by-step in a video
 id="formErr"
 style="display:none;color:#EF476F;font-weight:800;font-size:.88rem;margin-bottom:10px;text-align:center;background:rgba(239,71,111,.1);padding:10px;border-radius:10px;"
 ></p>
+<div class="fg">
+  <label>WHERE WOULD YOU LIKE TO RECEIVE THE SOLUTION? ✨</label>
 
+  <div class="fmt-wrap">
+
+    <button
+      type="button"
+      class="fmt-btn active"
+      id="rWhats"
+      onclick="setReceive(this,'whatsapp')"
+    >
+      <span class="fmt-icon">📲</span>
+      <span class="fmt-label">WhatsApp</span>
+      <span class="fmt-desc">Receive solution on WhatsApp</span>
+    </button>
+
+    <button
+      type="button"
+      class="fmt-btn"
+      id="rEmail"
+      onclick="setReceive(this,'email')"
+    >
+      <span class="fmt-icon">📧</span>
+      <span class="fmt-label">Email</span>
+      <span class="fmt-desc">Receive solution on Email</span>
+    </button>
+
+  </div>
+</div>
 <button
 class="submit-btn"
 id="submitBtn"
@@ -944,7 +972,78 @@ function confetti() {
     if(++f<130) requestAnimationFrame(draw);
     else ctx.clearRect(0,0,c.width,c.height);
   })();
+}<script>
+
+let receiveMethod = "whatsapp";
+
+function setReceive(el,method){
+
+  receiveMethod = method;
+
+  document
+    .querySelectorAll("#rWhats,#rEmail")
+    .forEach(btn => btn.classList.remove("active"));
+
+  el.classList.add("active");
 }
+
+function doSubmit(){
+
+  const name =
+    document.getElementById("sName").value || "Not provided";
+
+  const phone =
+    document.getElementById("sPhone").value || "Not provided";
+
+  const subject =
+    document.getElementById("sSubject").value || "Not selected";
+
+  const question =
+    document.getElementById("sQuestion").value || "No typed question";
+
+  let solutionType = "Photo";
+
+  if(document.getElementById("fVideo").classList.contains("active")){
+    solutionType = "Video";
+  }
+
+  const msg =
+`📚 NEW MATH QUESTION
+
+👤 Name: ${name}
+
+📱 WhatsApp: ${phone}
+
+📘 Subject: ${subject}
+
+📝 Question:
+${question}
+
+🎯 Solution Type: ${solutionType}
+`;
+
+  if(receiveMethod === "whatsapp"){
+
+    const url =
+      "https://wa.me/201032365569?text=" +
+      encodeURIComponent(msg);
+
+    window.open(url, "_blank");
+
+  }else{
+
+    const subjectMail =
+      encodeURIComponent("New Math Question");
+
+    const bodyMail =
+      encodeURIComponent(msg);
+
+    window.location.href =
+      `mailto:abdelrhmansherif847@gmail.com?subject=${subjectMail}&body=${bodyMail}`;
+  }
+}
+
+</script>
 </script>
 </body>
 </html>
